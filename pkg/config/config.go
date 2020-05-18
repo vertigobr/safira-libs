@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	p "path"
 )
 
@@ -37,4 +38,10 @@ func CreateInBinDir(folder string) (string, error) {
 
 func CreateInTemplateDir(folder string) (string, error) {
 	return initUserDir("/template/", folder)
+}
+
+func ExistsBinary(binary string) (exists bool, err error) {
+	path, err := exec.LookPath(fmt.Sprintf("%sbin/.%s/%s", getUserDir(), binary, binary))
+	exists = path != ""
+	return
 }

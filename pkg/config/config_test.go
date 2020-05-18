@@ -1,8 +1,6 @@
 package config
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestCreateDir(t *testing.T) {
 	userDir, err := CreateInBinDir("/.helm/")
