@@ -9,7 +9,7 @@ import (
 	o "os"
 )
 
-const k3dVersion = "v3.0.0-beta.1"
+const k3dVersion = "v1.7.0"
 
 func getK3dUrl() string {
 	arch := getARCH()
