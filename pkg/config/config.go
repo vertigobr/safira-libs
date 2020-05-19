@@ -7,13 +7,13 @@ import (
 	p "path"
 )
 
-func getUserDir() string {
+func GetUserDir() string {
 	home := os.Getenv("HOME")
 	return fmt.Sprintf("%s/.safira/", home)
 }
 
 func initUserDir(root, folder string) (string, error) {
-	safiraDir := getUserDir()
+	safiraDir := GetUserDir()
 
 	if len(safiraDir) == 0{
 		return safiraDir, fmt.Errorf("variável HOME não encontrada")
@@ -41,7 +41,7 @@ func CreateInTemplateDir(folder string) (string, error) {
 }
 
 func ExistsBinary(binary string) (exists bool, err error) {
-	path, err := exec.LookPath(fmt.Sprintf("%sbin/.%s/%s", getUserDir(), binary, binary))
+	path, err := exec.LookPath(fmt.Sprintf("%sbin/.%s/%s", GetUserDir(), binary, binary))
 	exists = path != ""
 	return
 }
