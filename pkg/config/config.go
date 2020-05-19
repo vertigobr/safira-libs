@@ -12,7 +12,7 @@ func GetUserDir() string {
 	return fmt.Sprintf("%s/.safira/", home)
 }
 
-func initUserDir(root, folder string) (string, error) {
+func initUserDir(root string) (string, error) {
 	safiraDir := GetUserDir()
 
 	if len(safiraDir) == 0{
@@ -24,24 +24,19 @@ func initUserDir(root, folder string) (string, error) {
 		return path, err
 	}
 
-	subPath := p.Join(path, folder)
-	if err := os.MkdirAll(subPath, 0700); err != nil {
-		return subPath, err
-	}
-
-	return subPath, nil
+	return path, nil
 }
 
-func CreateInBinDir(folder string) (string, error) {
-	return initUserDir("/bin/", folder)
+func CreateInBinDir() (string, error) {
+	return initUserDir("/bin/")
 }
 
-func CreateInTemplateDir(folder string) (string, error) {
-	return initUserDir("/template/", folder)
+func CreateInTemplateDir() (string, error) {
+	return initUserDir("/template/")
 }
 
 func ExistsBinary(binary string) (exists bool, err error) {
-	path, err := exec.LookPath(fmt.Sprintf("%sbin/.%s/%s", GetUserDir(), binary, binary))
+	path, err := exec.LookPath(fmt.Sprintf("%sbin/%s", GetUserDir(), binary))
 	exists = path != ""
 	return
 }

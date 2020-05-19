@@ -5,13 +5,13 @@ import (
 )
 
 func GetKubectlPath() string {
-	return fmt.Sprintf("%sbin/.kubectl/kubectl", GetUserDir())
+	return fmt.Sprintf("%sbin/kubectl", GetUserDir())
 }
 
 func GetK3dPath() string {
-	return fmt.Sprintf("%sbin/.k3d/k3d", GetUserDir())
+	return fmt.Sprintf("%sbin/k3d", GetUserDir())
 }
 
 func GetHelmPath() string {
-	return fmt.Sprintf("%sbin/.helm/helm", GetUserDir())
+	return fmt.Sprintf("%sbin/helm", GetUserDir())
 }
