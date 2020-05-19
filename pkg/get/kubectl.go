@@ -28,7 +28,7 @@ func DownloadKubectl() error {
 	}
 	defer res.Body.Close()
 
-	dest, err := c.CreateInBinDir("/.kubectl/")
+	dest, err := c.CreateInBinDir()
 	if err != nil {
 		return err
 	}

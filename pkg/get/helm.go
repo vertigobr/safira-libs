@@ -28,7 +28,7 @@ func DownloadHelm() error {
 	}
 	defer res.Body.Close()
 
-	dest, err := c.CreateInBinDir("/.helm/")
+	dest, err := c.CreateInBinDir()
 	if err != nil {
 		return err
 	}

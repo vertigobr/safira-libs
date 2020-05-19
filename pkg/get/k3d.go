@@ -28,7 +28,7 @@ func DownloadK3d() error {
 	}
 	defer res.Body.Close()
 
-	dest, err := c.CreateInBinDir("/.k3d/")
+	dest, err := c.CreateInBinDir()
 	if err != nil {
 		return err
 	}
