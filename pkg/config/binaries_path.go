@@ -15,3 +15,7 @@ func GetK3dPath() string {
 func GetHelmPath() string {
 	return fmt.Sprintf("%sbin/helm", GetUserDir())
 }
+
+func GetFaasCliPath() string {
+	return fmt.Sprintf("%sbin/faas-cli", GetUserDir())
+}
