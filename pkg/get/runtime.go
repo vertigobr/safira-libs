@@ -14,7 +14,7 @@ func getARCH() string {
 		return "arm64"
 	}
 
-	return arch
+	return strings.ToLower(arch)
 }
 
 func getOS() string {
@@ -24,6 +24,6 @@ func getOS() string {
 		return "windows"
 	}
 
-	return os
+	return strings.ToLower(os)
 }
 
