@@ -3,9 +3,9 @@ package repository
 import "testing"
 
 func TestGetRepositoryURL(t *testing.T)  {
-	listTemplates()
-	getRepositoryURL("https://google.com")
-	getRepositoryURL("google.com")
-	getRepositoryURL("google")
-	getRepositoryURL("/foo/bar")
+	ListTemplates()
+	GetRepositoryURL("https://google.com")
+	GetRepositoryURL("google.com")
+	GetRepositoryURL("google")
+	GetRepositoryURL("/foo/bar")
 }

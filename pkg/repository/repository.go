@@ -10,7 +10,7 @@ var templates = map[string]string{
 	"all": "https://github.com/vertigobr/openfaas-templates",
 }
 
-func getRepositoryURL(repository string) (string, error) {
+func GetRepositoryURL(repository string) (string, error) {
 	if strings.Contains(repository, "/") || strings.Contains(repository, ".") {
 		_, err := url.ParseRequestURI(repository)
 		if err != nil {
@@ -18,7 +18,7 @@ func getRepositoryURL(repository string) (string, error) {
 
 			if !strings.HasPrefix(repository, "http") && !strings.HasPrefix(repository, "https") {
 				repository = fmt.Sprintf("https://%s", repository)
-				_, _ = getRepositoryURL(repository)
+				_, _ = GetRepositoryURL(repository)
 				return "", nil
 			}
 
@@ -36,8 +36,8 @@ func getRepositoryURL(repository string) (string, error) {
 	}
 }
 
-func listTemplates() {
-	for template, url := range templates {
-		fmt.Printf("%s    %s\n", template, url)
+func ListTemplates() {
+	for template, u := range templates {
+		fmt.Printf("%s    %s\n", template, u)
 	}
 }
