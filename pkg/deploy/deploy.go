@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/subosito/gotenv"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -61,11 +62,16 @@ func getDomain() (string, error) {
 	return s, nil
 }
 
-func getPort() (string, error) {
+func getPort() (int, error) {
 	s := os.Getenv("PORT")
 	if len(s) == 0 {
-		return "", fmt.Errorf("variável PORT não encontrada no arquivo .env")
+		return 0, fmt.Errorf("variável PORT não encontrada no arquivo .env")
 	}
 
-	return s, nil
+	port, err := strconv.Atoi(s)
+	if err != nil {
+		return 0, err
+	}
+
+	return port, nil
 }

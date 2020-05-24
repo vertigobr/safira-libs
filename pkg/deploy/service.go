@@ -24,7 +24,7 @@ type serviceSpec struct {
 }
 
 type port struct {
-	Port string `yaml:"port"`
+	Port int `yaml:"port"`
 }
 
 
@@ -73,15 +73,15 @@ func CreateYamlService(fileName string) error {
 	return nil
 }
 
-func getServiceEnvs() (string, string, error) {
+func getServiceEnvs() (string, int, error) {
 	projectName, err := getProjectName()
 	if err != nil {
-		return "", "", err
+		return "", 0, err
 	}
 
 	port, err := getPort()
 	if err != nil {
-		return "", "", err
+		return "", 0, err
 	}
 
 	return projectName, port, nil

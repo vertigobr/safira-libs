@@ -33,7 +33,7 @@ type path struct {
 
 type backend struct {
 	ServiceName string `yaml:"serviceName"`
-	ServicePort string `yaml:"servicePort"`
+	ServicePort int    `yaml:"servicePort"`
 }
 
 func CreateYamlIngress(fileName string) error {
@@ -84,20 +84,20 @@ func CreateYamlIngress(fileName string) error {
 	return nil
 }
 
-func getIngressEnvs() (string, string, string, error) {
+func getIngressEnvs() (string, string, int, error) {
 	projectName, err := getProjectName()
 	if err != nil {
-		return "", "", "", err
+		return "", "", 0, err
 	}
 
 	domain, err := getDomain()
 	if err != nil {
-		return "", "", "", err
+		return "", "", 0, err
 	}
 
 	port, err := getPort()
 	if err != nil {
-		return "", "", "", err
+		return "", "", 0, err
 	}
 
 	return projectName, domain, port, nil
