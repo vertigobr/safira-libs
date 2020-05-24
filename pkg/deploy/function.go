@@ -44,7 +44,7 @@ func CreateYamlFunction(fileName string) error {
 		Kind:       "Function",
 		Metadata: functionMetadata{
 			Name:      projectName,
-			Namespace: "ipaas-fn",
+			Namespace: "openfaas-fn",
 		},
 		Spec: functionSpec{
 			Name:  projectName,
