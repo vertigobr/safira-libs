@@ -19,6 +19,8 @@ func createYamlFile(fileName string, bytes []byte) error {
 	}
 	defer f.Close()
 
+	f.Truncate(0)
+
 	_, err = f.Write(bytes)
 	if err != nil {
 		return err
